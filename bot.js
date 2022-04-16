@@ -52,7 +52,7 @@ const rest = new REST({
     version: "9",
 }).setToken(process.env.BOT_TOKEN);
 (async () => {
-    // try {
+    try {
         console.log(
             "Started refreshing application (/) commands."
         );
@@ -63,9 +63,9 @@ const rest = new REST({
         console.log(
             "Successfully reloaded application (/) commands."
         );
-    // } catch (error) {
-    //     console.log("shit something went wrong")
-    // }
+    } catch (error) {
+        console.log("shit something went wrong")
+    }
 })();
 
 
