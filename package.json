@@ -10,6 +10,7 @@
     "@discordjs/voice": "^0.8.0",
     "discord-api-types": "^0.31.1",
     "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
     "install": "^0.13.0",
     "optionator": "^0.9.1"
   },

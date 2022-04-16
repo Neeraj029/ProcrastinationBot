@@ -2,7 +2,12 @@ const fs = require("fs");
 const { Client, Collection, Intents } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
+const process = require("process");
 const commands = [];
+
+require('dotenv').config()
+
+
 
 
 // const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -45,13 +50,13 @@ botInstance.on('interactionCreate', async interaction => {
 // setup slash commands
 const rest = new REST({
     version: "9",
-}).setToken("OTY0MDY4ODEwMTYyMzA3MDcz.YlfRCw.341Lo-8jhoXtyMezKx5onxihkzU");
+}).setToken(process.env.BOT_TOKEN);
 (async () => {
     // try {
         console.log(
             "Started refreshing application (/) commands."
         );
-        await rest.put(Routes.applicationGuildCommands("964068810162307073", "955778371621638174"), {
+        await rest.put(Routes.applicationGuildCommands(process.env.APPLICATION_ID, process.env.GUILD_ID), {
             body: botCommands,
         });
 
@@ -77,4 +82,4 @@ botInstance.on("ready", () => {
         })})
 });
 
-botInstance.login("OTY0MDY4ODEwMTYyMzA3MDcz.YlfRCw.341Lo-8jhoXtyMezKx5onxihkzU");
+botInstance.login(process.env.BOT_TOKEN);
